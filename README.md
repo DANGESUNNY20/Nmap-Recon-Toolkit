@@ -153,7 +153,7 @@ Run the tool:
 UPLOAD IMAGE:
 
 ```bash id="final9"
-screenshots/banner-image.png
+![Toolkit Banner](screenshots/banner.png)
 ```
 
 ---
@@ -163,7 +163,7 @@ screenshots/banner-image.png
 UPLOAD IMAGE:
 
 ```bash id="final10"
-screenshots/menu-interface.png
+![Menu Interface](screenshots/menu.png)
 ```
 
 ---
@@ -173,7 +173,7 @@ screenshots/menu-interface.png
 UPLOAD IMAGE:
 
 ```bash id="final11"
-screenshots/host-discovery-scan.png
+![Host Discovery Scan](screenshots/host-discovery.png)
 ```
 
 ---
@@ -183,7 +183,7 @@ screenshots/host-discovery-scan.png
 UPLOAD IMAGE:
 
 ```bash id="final12"
-screenshots/tcp-syn-scan.png
+![TCP SYN Scan](screenshots/tcp-syn-scan.png)
 ```
 
 ---
@@ -193,7 +193,7 @@ screenshots/tcp-syn-scan.png
 UPLOAD IMAGE:
 
 ```bash id="final13"
-screenshots/vulnerability-scan.png
+![Vulnerability Assessment Scan](screenshots/vulnerability-scan.png)
 ```
 
 ---
@@ -203,7 +203,7 @@ screenshots/vulnerability-scan.png
 UPLOAD IMAGE:
 
 ```bash id="final14"
-screenshots/full-port-scan.png
+![Full Port Scan](screenshots/full-port-scan.png)
 ```
 
 ---
