@@ -156,7 +156,7 @@ Run the tool:
 
 ## 📋 Main Menu Interface
 
-![Menu Interface](screenshots/menu-interface.png.png)
+![Menu Interface](screenshots/menu-interface.png)
 
 ---
 
