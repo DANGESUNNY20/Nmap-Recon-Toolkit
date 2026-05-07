@@ -63,7 +63,7 @@ The project was built as part of hands-on cybersecurity and Linux automation lea
 
 # 📂 Project Structure
 
-```bash id="final1"
+```bash
 nmap-recon-toolkit/
 
 │── nmap-recon-toolkit.sh
@@ -89,7 +89,7 @@ The following dependencies are required:
 
 ## Clone the Repository
 
-```bash id="final2"
+```bash
 git clone https://github.com/DANGESUNNY20/Cybersecurity-Bash-Automation-Toolkit.git
 ```
 
@@ -97,7 +97,7 @@ git clone https://github.com/DANGESUNNY20/Cybersecurity-Bash-Automation-Toolkit.
 
 ## Navigate to Project Directory
 
-```bash id="final3"
+```bash
 cd Cybersecurity-Bash-Automation-Toolkit/nmap-recon-toolkit
 ```
 
@@ -109,13 +109,13 @@ cd Cybersecurity-Bash-Automation-Toolkit/nmap-recon-toolkit
 
 Give executable permission:
 
-```bash id="final4"
+```bash
 chmod +x install.sh
 ```
 
 Run installation script:
 
-```bash id="final5"
+```bash
 ./install.sh
 ```
 
@@ -123,7 +123,7 @@ Run installation script:
 
 ## Method 2 — Manual Installation
 
-```bash id="final6"
+```bash
 sudo apt update
 sudo apt install nmap -y
 ```
@@ -134,13 +134,13 @@ sudo apt install nmap -y
 
 Give executable permission:
 
-```bash id="final7"
+```bash
 chmod +x nmap-recon-toolkit.sh
 ```
 
 Run the tool:
 
-```bash id="final8"
+```bash
 ./nmap-recon-toolkit.sh
 ```
 
@@ -150,61 +150,37 @@ Run the tool:
 
 ## 🔥 Toolkit Banner
 
-UPLOAD IMAGE:
-
-```bash id="final9"
 ![Toolkit Banner](screenshots/banner.png)
-```
 
 ---
 
 ## 📋 Main Menu Interface
 
-UPLOAD IMAGE:
-
-```bash id="final10"
-![Menu Interface](screenshots/menu.png)
-```
+![Menu Interface](screenshots/menu-interface.png.png)
 
 ---
 
 ## 🌐 Host Discovery Scan
 
-UPLOAD IMAGE:
-
-```bash id="final11"
-![Host Discovery Scan](screenshots/host-discovery.png)
-```
+![Host Discovery Scan](screenshots/host-discovery-scan.png)
 
 ---
 
 ## 🔎 TCP SYN Scan Output
 
-UPLOAD IMAGE:
-
-```bash id="final12"
 ![TCP SYN Scan](screenshots/tcp-syn-scan.png)
-```
 
 ---
 
 ## 🛡️ Vulnerability Assessment Scan
 
-UPLOAD IMAGE:
-
-```bash id="final13"
 ![Vulnerability Assessment Scan](screenshots/vulnerability-scan.png)
-```
 
 ---
 
 ## 🚀 Full Port Scan Output
 
-UPLOAD IMAGE:
-
-```bash id="final14"
 ![Full Port Scan](screenshots/full-port-scan.png)
-```
 
 ---
 
@@ -286,6 +262,6 @@ Do not use this tool against systems without proper authorization.
 ## Sunny Dange
 
 * GitHub: https://github.com/DANGESUNNY20
-* LinkedIn: [www.linkedin.com/in/sunnydange](http://www.linkedin.com/in/sunnydange)
+* LinkedIn: https://www.linkedin.com/in/sunnydange
 
 ---
