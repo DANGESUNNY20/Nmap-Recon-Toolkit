@@ -1,29 +1,31 @@
-# Cybersecurity-Bash-Automation-Toolkit.
 # Nmap Recon Toolkit
 
 A Bash-based cybersecurity reconnaissance and network scanning toolkit that automates multiple Nmap scanning techniques through a menu-driven interface.
 
 ---
 
-## 📌 Overview
+# 📌 Overview
 
 The **Nmap Recon Toolkit** is a practical cybersecurity automation project developed using Bash scripting and Nmap.
-The tool provides a centralized menu-driven interface for performing reconnaissance, enumeration, host discovery, service detection, vulnerability assessment, and advanced network scanning operations.
 
-This project was created to improve practical skills in:
+This toolkit provides an interactive terminal-based interface for performing:
 
-* Bash scripting
-* Linux automation
+* Host discovery
 * Network reconnaissance
-* Vulnerability Assessment
-* Nmap integration
-* Cybersecurity workflow automation
+* Port scanning
+* Service enumeration
+* OS fingerprinting
+* Vulnerability assessment
+* Advanced Nmap scanning techniques
+
+The project was built as part of hands-on cybersecurity and Linux automation learning.
 
 ---
 
-## 🚀 Features
+# 🚀 Features
 
 * Interactive menu-driven interface
+* Colored cybersecurity-style terminal UI
 * Host discovery scanning
 * TCP SYN scanning
 * TCP Connect scanning
@@ -45,13 +47,12 @@ This project was created to improve practical skills in:
 * IPv6 scanning
 * Fast scanning
 * Timing template scanning
-* Colored terminal interface
-* Scan success/error handling
 * Real-time Nmap output display
+* Scan success/error handling
 
 ---
 
-## 🛠️ Technologies Used
+# 🛠️ Technologies Used
 
 * Bash Scripting
 * Kali Linux
@@ -60,12 +61,14 @@ This project was created to improve practical skills in:
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
-```bash
+```bash id="final1"
 nmap-recon-toolkit/
 
 │── nmap-recon-toolkit.sh
+│── install.sh
+│── dependencies.txt
 │── README.md
 │── screenshots/
 │── reports/
@@ -73,97 +76,139 @@ nmap-recon-toolkit/
 
 ---
 
-## 📸 Screenshots
+# ⚙️ Dependencies
 
-### 🔥 Toolkit Banner
+The following dependencies are required:
 
-UPLOAD IMAGE: banner-image.png
-
-```bash
-screenshots/banner-image.png
-```
+* Bash
+* Nmap
 
 ---
 
-### 📋 Main Menu Interface
+# 📦 Installation
 
-UPLOAD IMAGE: menu-interface.png
+## Clone the Repository
 
-```bash
-screenshots/menu-interface.png
-```
-
----
-
-### 🌐 Host Discovery Scan
-
-UPLOAD IMAGE: host-discovery-scan.png
-
-```bash
-screenshots/host-discovery-scan.png
-```
-
----
-
-### 🔎 TCP SYN Scan Output
-
-UPLOAD IMAGE: tcp-syn-scan.png
-
-```bash
-screenshots/tcp-syn-scan.png
-```
-
----
-
-### 🛡️ Vulnerability Assessment Scan
-
-UPLOAD IMAGE: vulnerability-scan.png
-
-```bash
-screenshots/vulnerability-scan.png
-```
-
----
-
-### 🚀 Full Port Scan Output
-
-UPLOAD IMAGE: full-port-scan.png
-
-```bash
-screenshots/full-port-scan.png
-```
-
----
-
-## ⚙️ Installation
-
-Clone the repository:
-
-```bash
+```bash id="final2"
 git clone https://github.com/DANGESUNNY20/Cybersecurity-Bash-Automation-Toolkit.git
 ```
 
-Navigate to project directory:
+---
 
-```bash
+## Navigate to Project Directory
+
+```bash id="final3"
 cd Cybersecurity-Bash-Automation-Toolkit/nmap-recon-toolkit
 ```
 
+---
+
+# 🔧 Install Dependencies
+
+## Method 1 — Using install.sh (Recommended)
+
 Give executable permission:
 
-```bash
+```bash id="final4"
+chmod +x install.sh
+```
+
+Run installation script:
+
+```bash id="final5"
+./install.sh
+```
+
+---
+
+## Method 2 — Manual Installation
+
+```bash id="final6"
+sudo apt update
+sudo apt install nmap -y
+```
+
+---
+
+# ▶️ Running the Toolkit
+
+Give executable permission:
+
+```bash id="final7"
 chmod +x nmap-recon-toolkit.sh
 ```
 
 Run the tool:
 
-```bash
+```bash id="final8"
 ./nmap-recon-toolkit.sh
 ```
 
 ---
 
-## 📌 Supported Scan Types
+# 📸 Screenshots
+
+## 🔥 Toolkit Banner
+
+UPLOAD IMAGE:
+
+```bash id="final9"
+screenshots/banner-image.png
+```
+
+---
+
+## 📋 Main Menu Interface
+
+UPLOAD IMAGE:
+
+```bash id="final10"
+screenshots/menu-interface.png
+```
+
+---
+
+## 🌐 Host Discovery Scan
+
+UPLOAD IMAGE:
+
+```bash id="final11"
+screenshots/host-discovery-scan.png
+```
+
+---
+
+## 🔎 TCP SYN Scan Output
+
+UPLOAD IMAGE:
+
+```bash id="final12"
+screenshots/tcp-syn-scan.png
+```
+
+---
+
+## 🛡️ Vulnerability Assessment Scan
+
+UPLOAD IMAGE:
+
+```bash id="final13"
+screenshots/vulnerability-scan.png
+```
+
+---
+
+## 🚀 Full Port Scan Output
+
+UPLOAD IMAGE:
+
+```bash id="final14"
+screenshots/full-port-scan.png
+```
+
+---
+
+# 📌 Supported Scan Types
 
 | No | Scan Type                     |
 | -- | ----------------------------- |
@@ -191,39 +236,56 @@ Run the tool:
 
 ---
 
-## 🎯 Learning Objectives
+# 🎯 Learning Objectives
 
 This project helped in understanding:
 
 * Bash scripting automation
 * Linux shell scripting concepts
-* Conditional statements
-* Loops and menu-driven scripting
-* Nmap command integration
-* Network reconnaissance workflows
+* Conditional statements and loops
+* Menu-driven scripting
+* Nmap integration
+* Reconnaissance workflows
 * Cybersecurity tool development
+* Linux-based security automation
 
 ---
 
-## ⚠️ Disclaimer
+# 🚀 Future Improvements
 
-This tool is developed strictly for:
+Planned future enhancements:
+
+* Automated report generation
+* PDF scan reports
+* Domain resolution support
+* Logging system
+* Multi-target scanning
+* Whois integration
+* DNS enumeration
+* Subdomain enumeration
+* Automated recon workflows
+* Scan result export options
+
+---
+
+# ⚠️ Disclaimer
+
+This project is developed strictly for:
 
 * Educational purposes
-* Authorized security testing
 * Ethical hacking labs
-* Personal cybersecurity learning
+* Authorized security testing
+* Cybersecurity learning
 
 Do not use this tool against systems without proper authorization.
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
-### Sunny Dange
+## Sunny Dange
 
 * GitHub: https://github.com/DANGESUNNY20
 * LinkedIn: [www.linkedin.com/in/sunnydange](http://www.linkedin.com/in/sunnydange)
 
 ---
-
