@@ -1,4 +1,12 @@
 #!/bin/bash
+Validate_ip () {  if  [  "-z $ip " ]
+then
+echo -e "\e[1;31m[-] ERROR: IP CANNOT BE EMPTY\e[0m" 
+return 1
+
+fi
+return 0
+}
 while true 
 do 
 echo -e "\e[1;31m"
@@ -44,9 +52,11 @@ echo " 22. Exit 😏 "
 read -p "[+] [RECON] Enter Scan Option: " option
 read -p " enter the ipv4 " ip
 case $option in 
-1) result=$( nmap -sn $ip )
+1) 
+Validate_ip
+result=$( nmap -sn $ip )
 
-if [ $? -eq 0 ]
+if [ $? -ne 0 ]
 then 
 echo -e "\e[1;36m"
 
@@ -62,9 +72,11 @@ echo -e "\e[1;31m"
  fi 
  echo -e \e[0m 
  ;;
- 2)result=$( nmap -sS $ip)
+ 2)
+ Validate_ip
+ result=$( nmap -sS $ip)
  
- if [ $? -eq 0 ]
+ if [ $? -ne 0 ]
  then 
  echo -e "\e[1;36m"
  echo " [+] scanning...TCP SYN Scan completed successfully "
@@ -77,8 +89,10 @@ echo -e "\e[1;31m"
  echo -e "\e[0m"
  fi
 ;;
-3) result=$( nmap -sT $ip )
-if [ $? -eq 0 ]
+3)
+Validate_ip
+result=$( nmap -sT $ip )
+if [ $? -ne 0 ]
 
 then 
 echo " [+] scanning ...TCP connect scan sucessfful $ip  "
@@ -88,8 +102,10 @@ echo  "[-] scanning...tcp connect scan unsucessful $ip "
 echo  "[-] scanning... please check the ip address  $ip "
 fi 
 ;;
-4)result=$( nmap -sU $ip )
-if [ $? -eq 0 ]
+4)
+Validate_ip
+result=$( nmap -sU $ip )
+if [ $? -ne 0 ]
 
 then 
 echo -e "\e[1;36m"
@@ -103,8 +119,11 @@ echo  "[-] scanning... please check the ip address  $ip "
 echo -e "\e[0m"
 fi 
 ;;
-5) result=$( nmap -sV $ip  )
-if [ $? -eq 0 ] 
+5)
+Validate_ip
+
+result=$( nmap -sV $ip  )
+if [ $? -ne 0 ] 
 
 then 
 echo -e "\e[1;36m"
@@ -118,8 +137,10 @@ echo  "[-] scanning... please check the ip address $ip "
 echo -e "\e[0m"
 fi 
 ;;
-6)result=$( nmap -O $ip )
-if [ $? -eq 0 ]
+6)
+Validate_ip
+result=$( nmap -O $ip )
+if [ $? -ne 0 ]
 
 then 
 echo -e "\e[1;36m"
@@ -132,8 +153,11 @@ echo  "[-] scanning... please check the ip address $ip "
 echo -e "\e[0m"
 fi 
 ;;
-7)result=$( nmap -A $ip)
-if [ $? -eq 0 ]
+7)
+Validate_ip
+
+result=$( nmap -A $ip)
+if [ $? -ne 0 ]
 
 then 
 echo -e "\e[1;36m"
@@ -146,8 +170,11 @@ echo  "[-] scanning... please check the ip address $ip "
 echo -e "\e[0m"
 fi 
 ;;
-8)result=$(nmap -sC  $ip)
-if [ $? -eq 0 ]
+8)
+Validate_ip
+
+result=$(nmap -sC  $ip)
+if [ $? -ne 0 ]
 
 then 
 echo -e "\e[1;36m"
@@ -160,8 +187,10 @@ echo  "[-] scanning ...please check the ip address  $ip "
 echo -e "\e[0m"
 fi 
 ;;
-9)result=$( nmap --script vuln $ip )
-if [ $? -eq 0 ]
+9)
+Validate_ip
+result=$( nmap --script vuln $ip )
+if [ $? -ne 0 ]
 
 then 
 echo -e "\e[1;36m"
@@ -175,8 +204,11 @@ echo  "[-] scanning...please check the ip address $ip "
 echo -e "\e[0m"
 fi 
 ;;
-10)result=$( nmap -p- $ip )
-if [ $? -eq 0 ]
+10)
+Validate_ip
+
+result=$( nmap -p- $ip )
+if [ $? -ne 0 ]
 
 then 
 echo -e "\e[1;36m"
@@ -190,8 +222,10 @@ echo  "[-] scanning ... please check the ip address $ip  "
 echo -e "\e[0m"
 fi 
 ;;
-11)result=$( nmap -sS $ip)
-if [ $? -eq 0 ]
+11)
+Validate_ip
+result=$( nmap -sS $ip)
+if [ $? -ne 0 ]
 
 then 
 echo -e "\e[1;36m"
@@ -205,8 +239,10 @@ echo  "[-] scanning...please check the ip address $ip "
 echo -e "\e[0m"
 fi 
 ;;
-12)result=$( nmap -sF $ip )
-if [ $? -eq 0 ]
+12)
+Validate_ip
+result=$( nmap -sF $ip )
+if [ $? -ne 0 ]
 
 then 
 echo -e "\e[1;36m"
@@ -220,8 +256,10 @@ echo  "[-] Scanning...please check the ip address $ip  "
 echo -e "\e[0m"
 fi 
 ;;
-13)result=$( nmap -sN $ip )
-if [ $? -eq 0 ]
+13)
+Validate_ip
+result=$( nmap -sN $ip )
+if [ $? -ne 0 ]
 
 then 
 echo -e "\e[1;36m"
@@ -235,8 +273,10 @@ echo  "[-] Scanning...please check the ip address  $ip "
 echo -e "\e[0m"
 fi 
 ;;
-14)result=$( nmap -sX $ip )
-if [ $? -eq 0 ]
+14)
+Validate_ip
+result=$( nmap -sX $ip )
+if [ $? -ne 0 ]
 then 
 echo -e "\e[1;36m"
 echo " [+] Scanning...xmass scan sucessfful $ip"
@@ -249,8 +289,10 @@ echo  "[-] scanning ...please check the ip address  $ip "
 echo -e "\e[0m"
 fi 
 ;;
-15)result=$( nmap -sA $ip )
-if [ $? -eq 0 ]
+15)
+Validate_ip
+result=$( nmap -sA $ip )
+if [ $? -ne 0 ]
 then 
 echo -e "\e[1;36m"
 echo " [+] Scanning...ACK scan successful $ip"
@@ -263,8 +305,10 @@ echo  "[-] Scanning...please check the ip address $ip  "
 echo -e "\e[0m"
 fi 
 ;;
-16)result=$( nmap -sW $ip )
-if [ $? -eq 0 ]
+16)
+Validate_ip
+result=$( nmap -sW $ip )
+if [ $? -ne 0 ]
 then 
 echo -e "\e[1;36m"
 echo " [+] Scanning...window  scan sucessfful $ip "
@@ -278,8 +322,10 @@ echo  "[-] Scanning...please check the ip address $ip "
 echo -e "\e[0m"
 fi 
 ;;
-17)result=$( nmap -sI zombie_host $ip)
-if [ $? -eq 0 ]
+17)
+Validate_ip
+result=$( nmap -sI zombie_host $ip)
+if [ $? -ne 0 ]
 then 
 echo -e "\e[1;36m"
 echo " [+] Scanning... Zombie scan successful $ip "
@@ -292,8 +338,10 @@ echo  "[-] Scanning...please check the ip address  $ip "
 echo -e "\e[0m"
 fi 
 ;;
-18)result=$( nmap -f $ip )
-if [ $? -eq 0 ]
+18)
+Validate_ip
+result=$( nmap -f $ip )
+if [ $? -ne 0 ]
 then 
 echo -e "\e[1;36m"
 echo " [+] Scanning... Fragmented Packet Scan successful $ip "
@@ -306,8 +354,10 @@ echo  "[-] Scanning...please check the ip address $ip "
 echo -e "\e[0m"
 fi 
 ;;
-19)result=$( nmap -6 $ip )
-if [ $? -eq 0 ]
+19)
+Validate_ip
+result=$( nmap -6 $ip )
+if [ $? -ne 0 ]
 then 
 echo -e "\e[1;36m"
 echo " [+] Scanning...ipv6  Scan sucessfful $ip "
@@ -320,11 +370,13 @@ echo  "[-] Scanning... please check the ip address $ip "
 echo -e "\e[0m"
 fi 
 ;;
-20)result=$( nmap -F $ip )
-if [ $? -eq 0 ]
+20)
+Validate_ip
+result=$( nmap -F $ip )
+if [ $? -ne 0 ]
 then 
 echo -e "\e[1;36m"
-echo " [+] Scanning... fast   Scan sucessfful $ip "
+echo " [+] Scanning... fast   Scan sucessful $ip "
 echo "   $result "
 echo -e "\e[0m"
 else
@@ -334,11 +386,13 @@ echo  "[-] Scanning...please check the ip address $ip "
 echo -e "\e[0m"
 fi 
  ;;
-21)result=$( nmap -T4 $ip )
-if [ $? -eq 0 ]
+21)
+Validate_ip
+result=$( nmap -T4 $ip )
+if [ $? -ne 0 ]
 then 
 echo -e "\e[1;36m"
-echo " [+] Scanning... Timing Template Scan sucessfful $ip"
+echo " [+] Scanning... Timing Template Scan sucessful $ip"
 echo "   $result "
 echo -e "\e[0m"
 else
