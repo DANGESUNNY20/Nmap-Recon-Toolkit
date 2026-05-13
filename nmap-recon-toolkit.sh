@@ -58,8 +58,13 @@ then
     break
 fi
 
-read -p " enter the ipv4 " ip
+read -p " ENTER IPV4 IP ADDRESS  " ip
 
+if [[ "$ip" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
+then 
+echo  " [ + ] Scanning "
+else 
+echo " [ + ] invalid ip address "
 case $option in
 
 1)
