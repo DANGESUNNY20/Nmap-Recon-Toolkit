@@ -2,14 +2,15 @@
 
 <div align="center">
 
-### 🚀 Bash-Based Cybersecurity Reconnaissance & Network Scanning Toolkit
+### 🚀 Advanced Bash-Based Cybersecurity Reconnaissance & Network Scanning Framework
 
-A professional Linux-based automation toolkit that integrates multiple **Nmap reconnaissance and scanning techniques** through an interactive menu-driven Bash interface.
+A professional Linux-based cybersecurity automation toolkit that integrates multiple **Nmap reconnaissance, enumeration, and vulnerability assessment techniques** through an interactive Bash-powered terminal interface.
 
-![Bash](https://img.shields.io/badge/Bash-Scripting-green?style=for-the-badge&logo=gnubash)
-![Linux](https://img.shields.io/badge/Linux-Kali%20Linux-red?style=for-the-badge&logo=linux)
+![Bash](https://img.shields.io/badge/Bash-Scripting-green?style=for-the-badge\&logo=gnubash)
+![Linux](https://img.shields.io/badge/Linux-Kali%20Linux-red?style=for-the-badge\&logo=linux)
 ![Nmap](https://img.shields.io/badge/Nmap-Network%20Scanner-blue?style=for-the-badge)
 ![Cybersecurity](https://img.shields.io/badge/Cybersecurity-Reconnaissance-orange?style=for-the-badge)
+![Automation](https://img.shields.io/badge/Automation-Bash%20Toolkit-purple?style=for-the-badge)
 
 </div>
 
@@ -17,79 +18,124 @@ A professional Linux-based automation toolkit that integrates multiple **Nmap re
 
 # 📌 Overview
 
-The **Nmap Recon Toolkit** is a Bash-based cybersecurity automation project developed to simplify and automate multiple reconnaissance and network scanning workflows using **Nmap**.
+The **Nmap Recon Toolkit** is an advanced Bash scripting project developed to automate and simplify cybersecurity reconnaissance and network scanning operations using **Nmap**.
 
-This toolkit provides an interactive terminal interface capable of performing:
+The toolkit provides a professional menu-driven terminal interface capable of automating multiple scanning methodologies including:
 
-- 🌐 Host Discovery  
-- 🔍 Network Reconnaissance  
-- 🚪 Port Scanning  
-- 🛠️ Service Enumeration  
-- 🖥️ OS Fingerprinting  
-- 🛡️ Vulnerability Detection  
-- ⚡ Advanced Nmap Scanning Techniques  
+* 🌐 Host Discovery
+* 🔍 Network Reconnaissance
+* 🚪 Port Enumeration
+* 🛠️ Service Detection
+* 🖥️ Operating System Fingerprinting
+* 🛡️ Vulnerability Assessment
+* ⚡ Advanced Stealth Scanning Techniques
+* 📄 Automated Scan Report Saving
+* 🎯 Multi-Scan Automation
 
-The project was built to strengthen practical skills in:
+This project was created to strengthen practical skills in:
 
-- Linux Administration
-- Bash Scripting
-- Cybersecurity Automation
-- Reconnaissance Methodologies
-- Network Security Testing
-
----
-
-# 🚀 Key Features
-
-## 🎨 Interactive Terminal UI
-- Menu-driven Bash interface
-- Colored cybersecurity-style terminal design
-- Real-time scan output display
-- Scan completion/error handling
+* Linux Administration
+* Bash Scripting Automation
+* Network Security Testing
+* Cybersecurity Reconnaissance
+* Ethical Hacking Methodologies
+* Security Tool Development
 
 ---
 
-## 🌐 Reconnaissance & Scanning Features
+# 🚀 Core Features
 
-### Basic Reconnaissance
-- Host Discovery Scan
-- Fast Network Scan
-- Service Version Detection
-- OS Detection
+# 🎨 Interactive Terminal Interface
 
-### Port Scanning
-- TCP SYN Scan
-- TCP Connect Scan
-- UDP Scan
-- Full Port Scan
+* Professional menu-driven Bash UI
+* Colored cybersecurity-themed terminal design
+* Real-time scan execution output
+* User-friendly navigation system
+* Automated error handling
+* Input validation system
+* Organized scanning workflow
 
-### Advanced Nmap Techniques
-- Stealth Scan
-- FIN Scan
-- NULL Scan
-- XMAS Scan
-- ACK Scan
-- Window Scan
-- Idle/Zombie Scan
-- Fragmented Packet Scan
-- IPv6 Scan
-- Timing Template Scan
+---
 
-### Security Assessment
-- Default NSE Script Scan
-- Vulnerability Assessment Scan
-- Aggressive Scan (`-A`)
+# 🌐 Reconnaissance & Enumeration Modules
+
+## 🔍 Basic Reconnaissance
+
+* Host Discovery Scan
+* Fast Network Scan
+* Ping Sweep Scanning
+* Live Host Detection
+* Service Version Detection
+* Operating System Detection
+
+---
+
+## 🚪 Port Scanning Techniques
+
+* TCP SYN Scan
+* TCP Connect Scan
+* UDP Scan
+* Full Port Scan
+* Custom Port Range Scan
+* Top Ports Scan
+
+---
+
+## ⚡ Advanced Nmap Scanning Techniques
+
+* Stealth Scan
+* FIN Scan
+* NULL Scan
+* XMAS Scan
+* ACK Scan
+* Window Scan
+* Idle/Zombie Scan
+* Fragmented Packet Scan
+* IPv6 Scan
+* Timing Template Scan
+* Aggressive Scan (`-A`)
+
+---
+
+# 🛡️ Security Assessment Features
+
+* Default NSE Script Scan
+* Vulnerability Assessment Scan
+* Service Enumeration
+* Version Enumeration
+* Security Misconfiguration Detection
+* Basic Vulnerability Identification
+
+---
+
+# 📄 Report & Output Management
+
+## ✅ Newly Upgraded Features
+
+* Automated scan result saving
+* Organized report storage system
+* Timestamp-based report generation
+* Custom output file naming
+* Scan logging support
+* Structured terminal output
+
+Generated reports are automatically stored inside:
+
+```bash
+reports/
+```
 
 ---
 
 # 🛠️ Technologies Used
 
-| Technology | Purpose |
-|------------|----------|
-| 🐧 Kali Linux | Operating Environment |
-| 💻 Bash Scripting | Automation Logic |
-| 🌐 Nmap | Network Reconnaissance |
-| 🖥️ Linux Terminal | Execution Environment |
+| Technology         | Purpose                 |
+| ------------------ | ----------------------- |
+| 🐧 Kali Linux      | Operating Environment   |
+| 💻 Bash Scripting  | Automation & Logic      |
+| 🌐 Nmap            | Network Reconnaissance  |
+| 🖥️ Linux Terminal | Execution Environment   |
+| 📄 NSE Scripts     | Vulnerability Detection |
 
 ---
 
@@ -105,10 +151,17 @@ Cybersecurity-Bash-Automation-Toolkit/
 │   ├── README.md
 │   │
 │   ├── screenshots/
-│   │   └── (scan proof images)
+│   │   ├── banner.png
+│   │   ├── menu-interface.png
+│   │   ├── host-discovery-scan.png
+│   │   ├── tcp-syn-scan.png
+│   │   └── vulnerability-scan.png
 │   │
-│   └── reports/
-│       └── (generated scan outputs)
+│   ├── reports/
+│   │   └── (saved scan outputs)
+│   │
+│   └── logs/
+│       └── (scan activity logs)
 ```
 
 ---
@@ -117,8 +170,9 @@ Cybersecurity-Bash-Automation-Toolkit/
 
 The following tools are required:
 
-- Bash
-- Nmap
+* Bash
+* Nmap
+* Linux Operating System
 
 ---
 
@@ -186,60 +240,70 @@ Run the toolkit:
 # 📸 Screenshots
 
 ## 🔥 Toolkit Banner
+
 ![Toolkit Banner](screenshots/banner.png)
 
 ---
 
 ## 📋 Main Menu Interface
+
 ![Main Menu](screenshots/menu-interface.png)
 
 ---
 
 ## 🌐 Host Discovery Scan
+
 ![Host Discovery](screenshots/host-discovery-scan.png)
 
 ---
 
 ## 🔎 TCP SYN Scan Output
+
 ![TCP SYN Scan](screenshots/tcp-syn-scan.png)
 
 ---
 
 ## 🛡️ Vulnerability Assessment Scan
+
 ![Vulnerability Scan](screenshots/vulnerability-scan.png)
 
 ---
 
 ## 🚀 Full Port Scan
+
 ![Full Port Scan](screenshots/full-port-scan.png)
 
 ---
 
 # 📌 Supported Scan Modules
 
-| No. | Scan Type |
-|----|------------------------------|
-| 1  | Host Discovery Scan |
-| 2  | TCP SYN Scan |
-| 3  | TCP Connect Scan |
-| 4  | UDP Scan |
-| 5  | Service Version Detection |
-| 6  | Operating System Detection |
-| 7  | Aggressive Scan |
-| 8  | Default NSE Script Scan |
-| 9  | Vulnerability Assessment Scan |
-| 10 | Full Port Scan |
-| 11 | Stealth Scan |
-| 12 | FIN Scan |
-| 13 | NULL Scan |
-| 14 | XMAS Scan |
-| 15 | ACK Scan |
-| 16 | Window Scan |
-| 17 | Idle/Zombie Scan |
-| 18 | Fragmented Packet Scan |
-| 19 | IPv6 Scan |
-| 20 | Fast Scan |
-| 21 | Timing Template Scan |
+| No. | Scan Type                     |
+| --- | ----------------------------- |
+| 1   | Host Discovery Scan           |
+| 2   | Fast Network Scan             |
+| 3   | TCP SYN Scan                  |
+| 4   | TCP Connect Scan              |
+| 5   | UDP Scan                      |
+| 6   | Full Port Scan                |
+| 7   | Service Version Detection     |
+| 8   | Operating System Detection    |
+| 9   | Aggressive Scan               |
+| 10  | Default NSE Script Scan       |
+| 11  | Vulnerability Assessment Scan |
+| 12  | Stealth Scan                  |
+| 13  | FIN Scan                      |
+| 14  | NULL Scan                     |
+| 15  | XMAS Scan                     |
+| 16  | ACK Scan                      |
+| 17  | Window Scan                   |
+| 18  | Idle/Zombie Scan              |
+| 19  | Fragmented Packet Scan        |
+| 20  | IPv6 Scan                     |
+| 21  | Timing Template Scan          |
+| 22  | Ping Sweep Scan               |
+| 23  | Custom Port Scan              |
+| 24  | Multi-Target Scan             |
+| 25  | Report Saving System          |
 
 ---
 
@@ -247,30 +311,51 @@ Run the toolkit:
 
 This project demonstrates practical understanding of:
 
-- Bash scripting automation
-- Linux shell scripting
-- Conditional statements and loops
-- Menu-driven scripting logic
-- Cybersecurity reconnaissance workflows
-- Network scanning methodologies
-- Nmap integration with Bash
-- Linux-based security automation
+* Bash scripting automation
+* Linux shell scripting
+* Conditional statements and loops
+* Function-based Bash scripting
+* Menu-driven terminal applications
+* Cybersecurity reconnaissance workflows
+* Network scanning methodologies
+* Nmap automation using Bash
+* Vulnerability scanning techniques
+* Linux-based security automation
+* Report generation & log management
 
 ---
 
-# 🚀 Planned Enhancements
+# 🚀 Newly Added Upgrades
 
-Future improvements planned for the toolkit:
+## ✅ Latest Improvements
 
-- 📄 Automated PDF report generation
-- 📝 Logging system
-- 🌍 Domain resolution support
-- 🔍 Whois integration
-- 🌐 DNS enumeration
-- 🛰️ Subdomain enumeration
-- 🎯 Multi-target scanning
-- 📊 Exportable scan results
-- 🤖 Automated recon workflows
+* 📄 Automated report saving system
+* 📝 Logging mechanism implementation
+* 🎯 Multi-target scanning support
+* ⚡ Improved scan execution workflow
+* 🔍 Better error handling
+* 📂 Organized reports & logs directory
+* 🎨 Improved terminal UI design
+* 🛡️ Enhanced vulnerability scanning support
+* 📊 Structured scan output formatting
+* 🔧 Dependency installation automation
+
+---
+
+# 🚀 Planned Future Enhancements
+
+Future upgrades planned for the toolkit:
+
+* 📄 PDF report generation
+* 🌍 Domain name resolution support
+* 🌐 DNS enumeration
+* 🛰️ Subdomain enumeration
+* 🔍 Whois integration
+* 📊 Export scan results to CSV/JSON
+* 🤖 Automated recon workflows
+* 🌐 Web reconnaissance integration
+* 🧠 AI-assisted scan recommendations
+* 🔐 Integrated stealth recon modules
 
 ---
 
@@ -278,40 +363,47 @@ Future improvements planned for the toolkit:
 
 This project was developed strictly for:
 
-- Educational purposes
-- Ethical hacking laboratories
-- Authorized penetration testing
-- Cybersecurity learning and research
+* Educational purposes
+* Ethical hacking laboratories
+* Authorized penetration testing
+* Cybersecurity learning & research
 
-❌ Do not use this toolkit against systems without proper authorization.
+❌ Unauthorized scanning of systems without permission is illegal and unethical.
+
+Always perform security testing only on systems you own or are authorized to assess.
 
 ---
 
 # 📈 Skills Demonstrated
 
-- Linux Administration
-- Bash Scripting
-- Cybersecurity Automation
-- Network Reconnaissance
-- Nmap Automation
-- Vulnerability Assessment
-- Linux Terminal Operations
-- Security Tool Development
+* Linux Administration
+* Bash Scripting
+* Cybersecurity Automation
+* Nmap Automation
+* Reconnaissance Methodologies
+* Network Enumeration
+* Vulnerability Assessment
+* Linux Terminal Operations
+* Security Tool Development
+* Scan Report Management
+* Ethical Hacking Workflows
 
 ---
 
 # 👨‍💻 Author
 
-## Sunny Dange
+# Sunny Dange
 
-📧 Email: dangesunny2021@gmail.com  
-🔗 LinkedIn: https://www.linkedin.com/in/sunnydange  
-💻 GitHub: https://github.com/DANGESUNNY20
+📧 Email: [dangesunny2021@gmail.com](mailto:dangesunny2021@gmail.com)
+🔗 LinkedIn: [https://www.linkedin.com/in/sunnydange](https://www.linkedin.com/in/sunnydange)
+💻 GitHub: [https://github.com/DANGESUNNY20](https://github.com/DANGESUNNY20)
 
 ---
 
 <div align="center">
 
-### ⭐ If you found this project useful, consider giving it a star!
+## ⭐ If you found this project useful, consider giving it a star!
+
+### 🚀 Built for Cybersecurity Learning & Ethical Hacking Automation
 
 </div>
