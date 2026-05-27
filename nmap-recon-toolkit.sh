@@ -1,16 +1,22 @@
+```bash
 #!/bin/bash
 
 Validate_ip() {
+
 if [ -z "$ip" ]
 then
     echo -e "\e[1;31m[-] ERROR: IP CANNOT BE EMPTY\e[0m"
     return 1
 fi
+
 return 0
 }
 
 while true
 do
+
+clear
+
 echo -e "\e[1;31m"
 echo "  ██████╗██╗   ██╗██████╗ ███████╗██████╗ "
 echo " ██╔════╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗"
@@ -18,14 +24,62 @@ echo " ██║      ╚████╔╝ ██████╔╝████
 echo " ██║       ╚██╔╝  ██╔══██╗██╔══╝  ██╔══██╗"
 echo " ╚██████╗   ██║   ██████╔╝███████╗██║  ██║"
 echo "  ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝"
+
 echo -e "\e[1;36m"
 echo "        RECON TOOLKIT | NMAP AUTOMATION"
 echo "        Created by Sunny Dange"
+
 echo -e "\e[1;33m"
 echo "================================================"
 echo "        Authorized Security Testing Only"
 echo "================================================"
+
 echo -e "\e[0m"
+
+echo "1. Single Target Scan"
+echo "2. Multiple Target File Scan"
+
+read -p "[+] Select Scan Mode: " mode
+
+if [ "$mode" = "1" ]
+then
+    read -p "[RECON] Enter Target IP: " ip
+
+    echo "$ip" > single_target.txt
+
+    target_file="single_target.txt"
+
+elif [ "$mode" = "2" ]
+then
+    read -p "[RECON] Enter Target List File (.txt): " target_file
+
+else
+    echo "[-] Invalid Mode"
+    continue
+fi
+
+echo ""
+echo "==============================="
+echo " SAVE RESULT OPTION "
+echo "==============================="
+
+echo "1. Save Scan Results"
+echo "2. Do Not Save"
+
+read -p "[+] Select Option: " save_option
+
+if [ "$save_option" = "1" ]
+then
+    read -p "[+] Enter File Name: " filename
+
+    mkdir -p reports
+
+else
+    filename=""
+fi
+
+echo ""
+echo "============= SCAN MENU ============="
 
 echo " 1. Host Discovery Scan "
 echo " 2. TCP SYN Scan "
@@ -50,402 +104,327 @@ echo " 20. Fast Scan "
 echo " 21. Timing Template Scan "
 echo " 22. Exit 😏 "
 
-read -p "[+] [RECON] Enter Scan Option: " option
+echo ""
+read -p "[+] Enter Multiple Scan Options (Example: 1 2 5 9): " options
 
-if [ "$option" = "22" ]
+if [[ "$options" =~ 22 ]]
 then
-    echo "exiting... "
+    echo "[+] Exiting..."
     break
 fi
 
-read -p " ENTER IPV4 IP ADDRESS  " ip
+while read ip
+do
 
 if [[ "$ip" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
-then 
-echo  " [ + ] Scanning "
-else 
-echo " [ + ] invalid ip address "
+then
+
+echo ""
+echo "================================================"
+echo "[+] TARGET : $ip"
+echo "================================================"
+
+for option in $options
+do
+
+echo ""
+echo "[+] Running Scan Option : $option"
+
 case $option in
 
 1)
+
+scan_name="Host Discovery Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sn "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Host is alive"
-    echo "[+] scanning... Live Host: $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Host not responding"
-    echo "[-] scanning...Please check the IP address"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 2)
+
+scan_name="TCP SYN Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sS "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...TCP SYN Scan completed successfully"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...TCP SYN scan failed"
-    echo "[-] scanning...Please check the IP address"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 3)
+
+scan_name="TCP Connect Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sT "$ip")
-if [ $? -eq 0 ]
-then
-    echo "[+] scanning...TCP connect scan successful $ip"
-    echo "$result"
-else
-    echo "[-] scanning...TCP connect scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-fi
+
 ;;
 
 4)
+
+scan_name="UDP Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sU "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...UDP scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...UDP scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 5)
+
+scan_name="Service Version Detection"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sV "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Service Version Detection successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Service Version Detection unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 6)
+
+scan_name="Operating System Detection"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -O "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...OS Detection successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...OS Detection unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 7)
+
+scan_name="Aggressive Network Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -A "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Aggressive Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Aggressive Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 8)
+
+scan_name="Default Script Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sC "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Default Script Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Default Script Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 9)
+
+scan_name="Vulnerability Assessment Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap --script vuln "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Vulnerability Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Vulnerability Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 10)
+
+scan_name="Full Port Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -p- "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Full Port Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Full Port Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 11)
+
+scan_name="Stealth Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sS "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Stealth Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Stealth Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 12)
+
+scan_name="FIN Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sF "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...FIN Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...FIN Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 13)
+
+scan_name="NULL Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sN "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...NULL Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...NULL Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 14)
+
+scan_name="XMAS Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sX "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Xmas Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Xmas Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 15)
+
+scan_name="ACK Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sA "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...ACK Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...ACK Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 16)
+
+scan_name="Window Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -sW "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Window Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Window Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 17)
+
+scan_name="Idle Zombie Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
-read -p "Enter zombie host: " zombie
+
+read -p "[+] Enter Zombie Host: " zombie
+
 result=$(nmap -sI "$zombie" "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Idle Zombie Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Idle Zombie Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address or zombie host"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 18)
+
+scan_name="Fragmented Packet Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -f "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Fragmented Packet Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Fragmented Packet Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 19)
+
+scan_name="IPv6 Network Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -6 "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...IPv6 Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...IPv6 Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 20)
+
+scan_name="Fast Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -F "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Fast Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Fast Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 21)
+
+scan_name="Timing Template Scan"
+
 Validate_ip
 if [ $? -ne 0 ]; then continue; fi
+
 result=$(nmap -T4 "$ip")
-if [ $? -eq 0 ]
-then
-    echo -e "\e[1;36m"
-    echo "[+] scanning...Timing Template Scan successful $ip"
-    echo "$result"
-    echo -e "\e[0m"
-else
-    echo -e "\e[1;31m"
-    echo "[-] scanning...Timing Template Scan unsuccessful $ip"
-    echo "[-] scanning...please check the IP address $ip"
-    echo -e "\e[0m"
-fi
+
 ;;
 
 *)
-echo " invalid option "
+
+echo -e "\e[1;31m[-] Invalid Scan Option : $option\e[0m"
+continue
+
 ;;
 
 esac
+
+if [ $? -eq 0 ]
+then
+
+echo -e "\e[1;36m"
+echo "[+] $scan_name Successful"
+echo "$result"
+echo -e "\e[0m"
+
+if [ "$save_option" = "1" ]
+then
+
+report_file="reports/${filename}.txt"
+
+echo "================================================" >> "$report_file"
+echo "TARGET IP : $ip" >> "$report_file"
+echo "SCAN TYPE : $scan_name" >> "$report_file"
+echo "================================================" >> "$report_file"
+
+echo "$result" >> "$report_file"
+
+echo "" >> "$report_file"
+echo "" >> "$report_file"
+
+fi
+
+else
+
+echo -e "\e[1;31m"
+echo "[-] $scan_name Failed"
+echo -e "\e[0m"
+
+fi
+
 done
+
+else
+
+echo -e "\e[1;31m[-] Invalid IP Address : $ip\e[0m"
+
+fi
+
+done < "$target_file"
+
+echo ""
+
+if [ "$save_option" = "1" ]
+then
+    echo "[+] Report Saved Successfully : reports/${filename}.txt"
+fi
+
+read -p "Press Enter To Continue..."
+
+done
+```
